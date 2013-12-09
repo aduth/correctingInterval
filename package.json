@@ -1,0 +1,29 @@
+{
+  "name": "correctingInterval",
+  "version": "1.0.0",
+  "description": "Provides setCorrectingInterval and clearAdjustingInterval as an auto-correcting alternative to setInterval",
+  "main": "correctingInterval.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aduth/correctingInterval.git"
+  },
+  "keywords": [
+    "timer",
+    "interval",
+    "timing"
+  ],
+  "author": {
+    "name": "Andrew Duthie",
+    "email": "andrew@andrewduthie.com",
+    "url": "http://www.andrewduthie.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aduth/correctingInterval/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt": "~0.4.2"
+  }
+}
