@@ -6,7 +6,7 @@ _correctingInterval_ exposes two functions, `setCorrectingInterval` and `clearCo
 
 # Usage
 
-Include _correctingInterval.js_ through a browser `<script>` tag, using RequireJS, or in Node.js. Then, use `setCorrectingInterval` and `clearCorrectingInterval` just as you would use `setInterval` and `clearInterval`. `setCorrectingInterval` returns a unique identifier that you can later use as the parameter to `clearCorrectingInterval`.
+Include _correctingInterval.js_ through a browser `<script>` tag, using RequireJS, or in Node.js. Then, use `setCorrectingInterval` and `clearCorrectingInterval` just as you would use `setInterval` and `clearInterval`.
 
 ```javascript
 var startTime = Date.now();
@@ -14,6 +14,8 @@ setCorrectingInterval(function() {
   console.log((Date.now() - startTime) + 'ms elapsed');
 }, 1000);
 ```
+
+`setCorrectingInterval` returns a unique identifier that you can later use as the parameter to `clearCorrectingInterval`.
 
 # License
 
