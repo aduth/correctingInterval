@@ -60,7 +60,7 @@
   var clearCorrectingInterval = function(intervalId) {
     // Clear existing timeout and remove from global running intervals
     clearTimeout(correctingIntervals[intervalId].intervalId);
-    correctingIntervals.splice(intervalId, 1);
+    correctingIntervals[intervalId] = null;
   };
 
   return {
