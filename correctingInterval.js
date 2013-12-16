@@ -18,6 +18,11 @@
   // Track running intervals
   var correctingIntervals = [];
 
+  // Polyfill Date.now
+  var now = Date.now || function() {
+    return new Date().valueOf();
+  };
+
   var setCorrectingInterval = (function() {
     // Create closure to save instance settings
     var instance = { };
@@ -25,11 +30,6 @@
     // Save to global running intervals
     instance.guid = correctingIntervals.length;
     correctingIntervals.push(instance);
-
-    // Polyfill Date.now
-    var now = Date.now || function() {
-      return new Date().valueOf();
-    };
 
     var tick = function(func, delay) {
       if (!instance.started) {
