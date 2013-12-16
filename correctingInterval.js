@@ -23,7 +23,7 @@
     return new Date().valueOf();
   };
 
-  var setCorrectingInterval = (function() {
+  var setCorrectingInterval = function() {
     // Create closure to save instance settings
     var instance = { };
 
@@ -54,8 +54,8 @@
       }
     };
 
-    return tick;
-  }());
+    return tick.apply(this, [].slice.call(arguments));
+  };
 
   var clearCorrectingInterval = function(intervalId) {
     // Clear existing timeout and remove from global running intervals
