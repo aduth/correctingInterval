@@ -7,12 +7,12 @@
   } else if (typeof define === 'function' && define.amd) {
     // Expose to RequireJS
     define([], factory);
-  } else {
-    // Expose to global object (likely browser window)
-    var exports = factory();
-    for (var prop in exports) {
-      global[prop] = exports[prop];
-    }
+  }
+
+  // Expose to global object (likely browser window)
+  var exports = factory();
+  for (var prop in exports) {
+    global[prop] = exports[prop];
   }
 }(this, function() {
   // Track running intervals
