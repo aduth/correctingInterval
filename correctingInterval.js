@@ -49,8 +49,11 @@
           timeoutArgs = [ tick, instance.delay + adjust ].concat(args);
 
         instance.func.apply(this, args);
-        instance.target += instance.delay;
-        instance.intervalId = setTimeout.apply(this, timeoutArgs);
+        if (correctingIntervals[instance.guid]) {
+          // Only re-register if clearCorrectingInterval was not called during function
+          instance.target += instance.delay;
+          instance.intervalId = setTimeout.apply(this, timeoutArgs);
+        }
       }
     };
 
