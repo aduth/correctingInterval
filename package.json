@@ -12,6 +12,9 @@
     "interval",
     "timing"
   ],
+  "scripts": {
+    "test": "grunt test"
+  },
   "author": {
     "name": "Andrew Duthie",
     "email": "andrew@andrewduthie.com",
