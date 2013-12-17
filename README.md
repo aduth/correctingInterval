@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aduth/correctingInterval.png?branch=master)](https://travis-ci.org/aduth/correctingInterval)
+
 # correctingInterval
 
 _correctingInterval_ exposes two functions, `setCorrectingInterval` and `clearCorrectingInterval`, which serve as drop-in replacements for `setInterval` and `clearInterval`. The _correctingInterval_ approach automatically corrects subsequent intervals that were delayed due to latency. For more information, refer to my related blog post below:
