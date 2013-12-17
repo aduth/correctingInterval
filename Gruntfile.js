@@ -26,6 +26,12 @@ module.exports = function(grunt) {
             }
         },
 
+        jshint: {
+            files: [
+                'correctingInterval.js'
+            ]
+        },
+
         mocha: {
             index: ['test/index.html'],
             options: {
@@ -36,9 +42,10 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha');
 
-    grunt.registerTask('test', ['mocha']);
+    grunt.registerTask('test', [ 'jshint', 'mocha' ]);
     grunt.registerTask('compile', [ 'test', 'concat', 'uglify' ]);
     grunt.registerTask('default', [ 'compile' ]);
 };
