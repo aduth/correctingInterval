@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+
+  <link rel="stylesheet" href="css/mocha.css">
+
+  <script src="js/mocha.js"></script>
+  <script src="js/chai.js"></script>
+</head>
+<body>
+  <div id="mocha"></div>
+
+  <script src="../correctingInterval.js"></script>
+  <script>
+    mocha.setup('bdd');
+    var expect = chai.expect;
+  </script>
+  <script src="spec/test-correctingInterval.js"></script>
+  <script>
+  if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+    mocha.run();
+  }
+  </script>
+</body>
+</html>

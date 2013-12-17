@@ -24,12 +24,21 @@ module.exports = function(grunt) {
                     'correctingInterval.min.js': [ 'correctingInterval.js' ]
                 }
             }
+        },
+
+        mocha: {
+            index: ['test/index.html'],
+            options: {
+                run: true
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-mocha');
 
-    grunt.registerTask('compile', [ 'concat', 'uglify' ]);
+    grunt.registerTask('test', ['mocha']);
+    grunt.registerTask('compile', [ 'test', 'concat', 'uglify' ]);
     grunt.registerTask('default', [ 'compile' ]);
 };
