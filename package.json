@@ -1,6 +1,6 @@
 {
   "name": "correctingInterval",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Provides setCorrectingInterval and clearAdjustingInterval as an auto-correcting alternative to setInterval",
   "main": "correctingInterval.js",
   "repository": {
