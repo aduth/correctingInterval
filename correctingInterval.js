@@ -61,6 +61,8 @@
   };
 
   var clearCorrectingInterval = function(intervalId) {
+    if (!correctingIntervals[intervalId]) return;
+
     // Clear existing timeout and remove from global running intervals
     clearTimeout(correctingIntervals[intervalId].intervalId);
     correctingIntervals[intervalId] = null;

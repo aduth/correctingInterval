@@ -78,4 +78,10 @@ describe('clearCorrectingInterval', function() {
       done();
     }, 200);
   });
+
+  it('should gracefully handle bad input', function() {
+    clearCorrectingInterval(null);
+    clearCorrectingInterval(0);
+    clearCorrectingInterval('');
+  });
 });
