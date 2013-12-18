@@ -58,6 +58,16 @@ describe('setCorrectingInterval', function() {
       target += delay;
     }, delay)
   });
+
+  it('should gracefully handle bad input', function() {
+    var intervalId;
+    intervalId = setCorrectingInterval(noop);
+    clearCorrectingInterval(intervalId);
+    intervalId = setCorrectingInterval(noop, '');
+    clearCorrectingInterval(intervalId);
+    intervalId = setCorrectingInterval(noop, -100);
+    clearCorrectingInterval(intervalId);
+  });
 });
 
 describe('clearCorrectingInterval', function() {
