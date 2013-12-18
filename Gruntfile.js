@@ -39,15 +39,23 @@ module.exports = function(grunt) {
       options: {
         run: true
       }
+    },
+
+    watch: {
+      files: [ 'correctingInterval.js', 'test/spec/*.js' ],
+      tasks: [ 'compile' ]
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha');
 
   grunt.registerTask('test', [ 'jshint', 'mocha' ]);
-  grunt.registerTask('compile', [ 'test', 'concat', 'uglify' ]);
-  grunt.registerTask('default', [ 'compile' ]);
+  grunt.registerTask('compile', [ 'concat', 'uglify' ]);
+  grunt.registerTask('release', [ 'test', 'compile' ]);
+  grunt.registerTask('dev', [ 'watch' ]);
+  grunt.registerTask('default', [ 'dev' ]);
 };
