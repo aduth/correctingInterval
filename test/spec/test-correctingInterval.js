@@ -24,7 +24,6 @@ describe('setCorrectingInterval', function() {
       intervalId;
 
     intervalId = setCorrectingInterval(function() {
-      console.log('abc')
       expect(Math.abs(Date.now() - now - delay)).to.be.within(0, 25);
       clearCorrectingInterval(intervalId);
       done();
@@ -37,7 +36,6 @@ describe('setCorrectingInterval', function() {
       intervalId;
 
     intervalId = setCorrectingInterval(function() {
-      console.log('abc')
       if (++iter === 2) {
         clearCorrectingInterval(intervalId);
         done();
