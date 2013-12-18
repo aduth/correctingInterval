@@ -1,4 +1,4 @@
-/*! correctingInterval 1.0.3 | Copyright 2013 Andrew Duthie | MIT License */
+/*! correcting-interval 1.0.3 | Copyright 2013 Andrew Duthie | MIT License */
 ;(function(global, factory) {
   // Use UMD pattern to expose exported functions
   if (typeof exports === 'object') {
