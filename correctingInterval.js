@@ -34,7 +34,7 @@
     var tick = function(func, delay) {
       if (!instance.started) {
         // On first call, save instance settings
-        instance.func = func;
+        instance.func = func instanceof Function ? func : (function() { });
         instance.delay = delay;
         instance.startTime = now();
         instance.target = delay;

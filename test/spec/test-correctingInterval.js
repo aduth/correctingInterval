@@ -59,7 +59,7 @@ describe('setCorrectingInterval', function() {
     }, delay)
   });
 
-  it('should gracefully handle bad input', function() {
+  it('should gracefully handle bad delay parameter input', function() {
     var intervalId;
     intervalId = setCorrectingInterval(noop);
     clearCorrectingInterval(intervalId);
@@ -67,6 +67,14 @@ describe('setCorrectingInterval', function() {
     clearCorrectingInterval(intervalId);
     intervalId = setCorrectingInterval(noop, -100);
     clearCorrectingInterval(intervalId);
+  });
+
+  it('should gracefully handle bad function parameter input', function() {
+    var intervalId = setCorrectingInterval(undefined, 100);
+
+    setTimeout(function() {
+      clearCorrectingInterval(intervalId);
+    }, 200);
   });
 });
 
