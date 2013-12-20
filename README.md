@@ -37,7 +37,7 @@ define([
 
 ### Node.js
 
-Install correctingInterval using npm (`npm install correctingInterval`). Require correctingInterval in your application script. correctingInterval is passed as an object containing the two functions as object members, e.g.:
+Install correctingInterval using npm (`npm install correcting-interval`). Require correctingInterval in your application script. correctingInterval is passed as an object containing the two functions as object members, e.g.:
 
 ```javascript
 var ci = require('correcting-interval');
