@@ -44,7 +44,8 @@ describe('setCorrectingInterval', function() {
   });
 
   it('should be relatively accurate', function(done) {
-    var delay = target = 200,
+    var delay = 200,
+      target = delay,
       previousDelay = undefined,
       now = Date.now();
 
