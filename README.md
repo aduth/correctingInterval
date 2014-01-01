@@ -48,7 +48,7 @@ ci.setCorrectingInterval(function() {
 }, 1000);
 ```
 
-## Notes
+## Clearing Intervals
 
 Similar to `setInterval`, you can stop running intervals by storing a reference to the value returned by `setCorrectingInterval` and later use as the sole parameter to `clearCorrectingInterval`, e.g.:
 
