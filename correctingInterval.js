@@ -19,9 +19,7 @@
   var correctingIntervals = [];
 
   // Polyfill Date.now
-  var now = Date.now || function() {
-    return new Date().valueOf();
-  };
+  var now = Date.now ? Date.now() : Date.valueOf();
 
   var setCorrectingInterval = function() {
     // Create closure to save instance settings
@@ -36,14 +34,14 @@
         // On first call, save instance settings
         instance.func = func instanceof Function ? func : (function() { });
         instance.delay = delay;
-        instance.startTime = now();
+        instance.startTime = now;
         instance.target = delay;
         instance.started = true;
         instance.intervalId = setTimeout.apply(this, [ tick ].concat([].slice.call(arguments, 1)));
         return instance.guid;
       } else {
         // On subsequent iterations, adjust timeout to correct for latency
-        var elapsed = now() - instance.startTime,
+        var elapsed = now - instance.startTime,
           adjust = instance.target - elapsed,
           args = [].slice.call(arguments),
           timeoutArgs = [ tick, instance.delay + adjust ].concat(args);
