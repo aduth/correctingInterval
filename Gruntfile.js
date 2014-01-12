@@ -30,7 +30,8 @@ module.exports = function(grunt) {
 
     jshint: {
       files: [
-        'correctingInterval.js'
+        'correctingInterval.js',
+        'test/spec/test-correctingInterval.js'
       ]
     },
 
