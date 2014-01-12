@@ -1,3 +1,5 @@
+/* jshint expr: true */
+
 describe('setCorrectingInterval', function() {
   var noop = function() { };
 
@@ -6,7 +8,7 @@ describe('setCorrectingInterval', function() {
   });
 
   it('should return a unique id', function() {
-  	var iter = 5,
+    var iter = 5,
       defined = {};
 
     for (var i = 0; i < iter; i++) {
@@ -46,8 +48,8 @@ describe('setCorrectingInterval', function() {
   it('should be relatively accurate', function(done) {
     var delay = 200,
       target = delay,
-      previousDelay = undefined,
-      now = Date.now();
+      now = Date.now(),
+      previousDelay;
 
     setCorrectingInterval(function() {
       // Expect at least one interval to be more accurate than its
@@ -57,7 +59,7 @@ describe('setCorrectingInterval', function() {
       if (previousDelay !== 'undefined' && thisDelay < previousDelay) done();
       previousDelay = thisDelay;
       target += delay;
-    }, delay)
+    }, delay);
   });
 
   it('should gracefully handle bad delay parameter input', function() {
