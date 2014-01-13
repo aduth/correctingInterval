@@ -2,7 +2,6 @@
 
 # correctingInterval
 
-
 correctingInterval exposes two functions, `setCorrectingInterval` and `clearCorrectingInterval`, which serve as drop-in replacements for `setInterval` and `clearInterval`. Unlike `setInterval`, the `setCorrectingInterval` function automatically adjusts to correct subsequent intervals that were delayed due to latency. This is useful if your delayed executions need to occur at predictable intervals. For more information, refer to my related blog post below:
 
 [Creating a self-correcting alternative to JavaScript's setInterval](http://www.andrewduthie.com/post/a-self-correcting-setinterval-alternative/)
@@ -61,6 +60,6 @@ clearCorrectingInterval(intervalId);
 
 ## License
 
-Copyright 2013 Andrew Duthie.
+Copyright 2014 Andrew Duthie.
 
 Released freely under the MIT license (refer to LICENSE.txt).

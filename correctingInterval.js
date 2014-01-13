@@ -1,4 +1,4 @@
-/*! correcting-interval 1.0.3 | Copyright 2013 Andrew Duthie | MIT License */
+/*! correcting-interval 1.0.3 | Copyright 2014 Andrew Duthie | MIT License */
 /* jshint evil: true */
 
 ;(function(global, factory) {
