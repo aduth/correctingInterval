@@ -62,6 +62,14 @@ describe('setCorrectingInterval', function() {
     }, delay);
   });
 
+  it('should allow string input for execution', function(done) {
+    window._done = done;
+    window.intervalId = setCorrectingInterval(
+      '_done(); clearCorrectingInterval(intervalId); delete window.intervalId; delete window._done;',
+      100
+    );
+  });
+
   it('should gracefully handle bad delay parameter input', function() {
     var intervalId;
     intervalId = setCorrectingInterval(noop);

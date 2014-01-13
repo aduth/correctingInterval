@@ -1,4 +1,6 @@
 /*! correcting-interval 1.0.3 | Copyright 2013 Andrew Duthie | MIT License */
+/* jshint evil: true */
+
 ;(function(global, factory) {
   // Use UMD pattern to expose exported functions
   if (typeof exports === 'object') {
@@ -34,6 +36,10 @@
     var tick = function(func, delay) {
       if (!instance.started) {
         // On first call, save instance settings
+        if (typeof func === 'string') {
+          // Convert string to function
+          func = function() { eval(this.func); }.bind({ func: func });
+        }
         instance.func = func instanceof Function ? func : (function() { });
         instance.delay = delay;
         instance.startTime = now();
