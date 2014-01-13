@@ -46,17 +46,23 @@ describe('setCorrectingInterval', function() {
   });
 
   it('should be relatively accurate', function(done) {
-    var delay = 200,
+    var delay = 150,
       target = delay,
       now = Date.now(),
-      previousDelay;
+      previousDelay,
+      intervalId;
 
-    setCorrectingInterval(function() {
+    this.timeout(5000);
+
+    intervalId = setCorrectingInterval(function() {
       // Expect at least one interval to be more accurate than its
       //  previous before timeout occurs
 
       var thisDelay = Date.now() - now - target;
-      if (previousDelay !== 'undefined' && thisDelay < previousDelay) done();
+      if (previousDelay !== 'undefined' && thisDelay < previousDelay) {
+        done();
+        clearCorrectingInterval(intervalId);
+      }
       previousDelay = thisDelay;
       target += delay;
     }, delay);
