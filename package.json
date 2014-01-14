@@ -13,7 +13,7 @@
     "timing"
   ],
   "scripts": {
-    "test": "grunt test"
+    "test": "node -e \"require('grunt').tasks('test');\""
   },
   "author": {
     "name": "Andrew Duthie",
