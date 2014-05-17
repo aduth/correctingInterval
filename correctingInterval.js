@@ -17,9 +17,14 @@
   var numIntervals = 0,
     intervals = {};
 
+  // Polyfill Date.now
+  var now = Date.now || function() {
+    return new Date().valueOf();
+  };
+
   var setCorrectingInterval = function(func, delay) {
     var id = numIntervals++,
-      planned = Date.now() + delay;
+      planned = now() + delay;
 
     // Normalize func as function
     switch (typeof func) {
@@ -40,7 +45,7 @@
 
       if (intervals[id]) {
         planned += delay;
-        intervals[id] = setTimeout(tick, planned - Date.now());
+        intervals[id] = setTimeout(tick, planned - now());
       }
     }
 
