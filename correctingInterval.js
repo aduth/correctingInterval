@@ -21,6 +21,11 @@
     var id = numIntervals++,
       planned = Date.now() + delay;
 
+    if (typeof func === 'string') {
+      // Convert string to function
+      func = function() { eval(this.func); }.bind({ func: func });
+    }
+
     function tick() {
       func();
       if (intervals[id]) {
