@@ -17,11 +17,11 @@
   var numIntervals = 0,
     intervals = {};
 
-  var setCorrectingInterval = function (func, delay) {
+  var setCorrectingInterval = function(func, delay) {
     var id = numIntervals++,
       planned = Date.now() + delay;
 
-    function tick () {
+    function tick() {
       func();
       if (intervals[id]) {
         planned += delay;
@@ -33,7 +33,7 @@
     return id;
   };
 
-  var clearCorrectingInterval = function (id) {
+  var clearCorrectingInterval = function(id) {
     clearTimeout(intervals[id]);
     delete intervals[id];
   };
