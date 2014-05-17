@@ -1,3 +1,5 @@
+/* jshint evil: true */
+
 ;(function(global, factory) {
   // Use UMD pattern to expose exported functions
   if (typeof exports === 'object') {
