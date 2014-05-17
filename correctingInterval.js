@@ -1,9 +1,9 @@
 (function() {
-  var autoIncrement = 0,
+  var numIntervals = 0,
     intervals = {};
 
   window.setCorrectingInterval = function (func, delay, minDelay /* optional */) {
-    var id = autoIncrement++,
+    var id = numIntervals++,
       planned = Date.now() + delay;
 
     minDelay = minDelay || 0;
