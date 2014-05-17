@@ -1,5 +1,5 @@
+/*! correcting-interval 2.0.0 | Copyright 2014 Andrew Duthie | MIT License */
 /* jshint evil: true */
-
 ;(function(global, factory) {
   // Use UMD pattern to expose exported functions
   if (typeof exports === 'object') {
