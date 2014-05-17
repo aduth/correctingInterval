@@ -17,17 +17,15 @@
   var numIntervals = 0,
     intervals = {};
 
-  var setCorrectingInterval = function (func, delay, minDelay /* optional */) {
+  var setCorrectingInterval = function (func, delay) {
     var id = numIntervals++,
       planned = Date.now() + delay;
-
-    minDelay = minDelay || 0;
 
     function tick () {
       func();
       if (intervals[id]) {
         planned += delay;
-        intervals[id] = setTimeout(tick, Math.max(planned - Date.now(), minDelay));
+        intervals[id] = setTimeout(tick, planned - Date.now());
       }
     }
 
