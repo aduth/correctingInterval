@@ -14,6 +14,7 @@
     global[prop] = exports[prop];
   }
 }(this, function() {
+  // Track running intervals
   var numIntervals = 0,
     intervals = {};
 
@@ -43,6 +44,7 @@
     function tick() {
       func();
 
+      // Only re-register if clearCorrectingInterval was not called during function
       if (intervals[id]) {
         planned += delay;
         intervals[id] = setTimeout(tick, planned - now());
