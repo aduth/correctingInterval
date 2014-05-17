@@ -21,13 +21,23 @@
     var id = numIntervals++,
       planned = Date.now() + delay;
 
-    if (typeof func === 'string') {
-      // Convert string to function
-      func = function() { eval(this.func); }.bind({ func: func });
+    // Normalize func as function
+    switch (typeof func) {
+      case 'function':
+        break;
+      case 'string':
+        var sFunc = func;
+        func = function() {
+          eval(sFunc);
+        };
+        break;
+      default:
+        func = function() { };
     }
 
     function tick() {
       func();
+
       if (intervals[id]) {
         planned += delay;
         intervals[id] = setTimeout(tick, planned - Date.now());
