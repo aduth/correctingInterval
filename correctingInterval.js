@@ -18,7 +18,8 @@
 }(this, function() {
   // Track running intervals
   var numIntervals = 0,
-    intervals = {};
+    intervals = {},
+    delays = {};
 
   // Polyfill Date.now
   var now = Date.now || function() {
@@ -26,8 +27,9 @@
   };
 
   var setCorrectingInterval = function(func, delay) {
+    delays[id] = delay;
     var id = numIntervals++,
-      planned = now() + delay;
+      planned = now() + delays[id];
 
     // Normalize func as function
     switch (typeof func) {
@@ -48,13 +50,17 @@
 
       // Only re-register if clearCorrectingInterval was not called during function
       if (intervals[id]) {
-        planned += delay;
+        planned += delays[id];
         intervals[id] = setTimeout(tick, planned - now());
       }
     }
 
-    intervals[id] = setTimeout(tick, delay);
+    intervals[id] = setTimeout(tick, delays[id]);
     return id;
+  };
+
+  var changeCorrectingInterval = function(id,delay) {
+    delays[id] = delay;
   };
 
   var clearCorrectingInterval = function(id) {
@@ -64,6 +70,7 @@
 
   return {
     setCorrectingInterval: setCorrectingInterval,
+    changeCorrectingInterval: changeCorrectingInterval,
     clearCorrectingInterval: clearCorrectingInterval
   };
 }));
