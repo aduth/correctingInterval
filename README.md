@@ -58,6 +58,18 @@ var intervalId = setCorrectingInterval(function() { }, 1000);
 clearCorrectingInterval(intervalId);
 ```
 
+## Changing Intervals
+
+An extension on `setInterval`, by calling `changeCorrectingInterval` you can spontaneously change the time between events. e.g.:
+
+```javascript
+var intervalId = setCorrectingInterval(function() { console.log(new Date) }, 1000);
+
+\\ When it needs to get faster
+changeCorrectingInterval(intervalId, 900)
+
+```
+
 ## License
 
 Copyright 2014 Andrew Duthie.
